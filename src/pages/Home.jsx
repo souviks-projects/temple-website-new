@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import EventCard from '../components/EventCard'
+import heroImage from '../assets/WhatsApp Image 2026-08-16 at 19.03.45.jpeg'
 import locationImage from '../assets/WhatsApp Image 2026-08-16 at 19.03.43.jpeg'
 
 const upcomingEvents = [
@@ -57,7 +58,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="hero-image">
-                        <img src="/src/assets/WhatsApp Image 2026-08-16 at 19.03.45.jpeg" alt="Shree Shree Radha Gobindo Jiu Thakur" />
+                        <img src={heroImage} alt="Shree Shree Radha Gobindo Jiu Thakur" />
                     </div>
                 </div>
             </section>
