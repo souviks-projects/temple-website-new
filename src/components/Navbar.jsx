@@ -14,7 +14,7 @@ function Navbar() {
         <header className="site-header">
             <Link className="site-logo" to="/" aria-label="Temple home">
                 <span className="logo-om">ॐ</span>
-                <span className="logo-text">Shree Temple</span>
+                <span className="logo-text">Shree Shree Radha Gobindo Jiu Thakur</span>
             </Link>
             <nav aria-label="Main navigation">
                 <ul className="navigation-list">

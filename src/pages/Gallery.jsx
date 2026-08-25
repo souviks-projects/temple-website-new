@@ -1,18 +1,23 @@
+import galleryImage1 from '../assets/WhatsApp Image 2026-08-16 at 18.51.34.jpeg'
+import galleryImage2 from '../assets/WhatsApp Image 2026-08-16 at 19.03.43.jpeg'
+import galleryImage3 from '../assets/WhatsApp Image 2026-08-16 at 19.03.45.jpeg'
+import galleryImage4 from '../assets/WhatsApp Image 2026-08-16 at 19.03.47.jpeg'
+import galleryImage5 from '../assets/WhatsApp Image 2026-08-16 at 19.03.50.jpeg'
+import galleryImage6 from '../assets/WhatsApp Image 2026-08-16 at 19.04.23.jpeg'
+import galleryImage7 from '../assets/WhatsApp Image 2026-08-16 at 19.04.25.jpeg'
+import aratiVideo1 from '../assets/Arati 1.mp4'
+import aratiVideo2 from '../assets/Arati 2.mp4'
+
 const galleryCategories = ['All', 'Temple', 'Festivals', 'Puja', 'Events']
 
 const galleryImages = [
-    { id: 1, title: 'Temple Main Entrance', category: 'Temple', emoji: '🛕' },
-    { id: 2, title: 'Ganesh Chaturthi Celebration', category: 'Festivals', emoji: '🐘' },
-    { id: 3, title: 'Morning Abhishekam', category: 'Puja', emoji: '🪔' },
-    { id: 4, title: 'Navaratri Cultural Program', category: 'Events', emoji: '💃' },
-    { id: 5, title: 'Temple Gopuram', category: 'Temple', emoji: '🏛️' },
-    { id: 6, title: 'Diwali Decoration', category: 'Festivals', emoji: '🪔' },
-    { id: 7, title: 'Evening Aarti', category: 'Puja', emoji: '🔥' },
-    { id: 8, title: 'Community Feast', category: 'Events', emoji: '🍛' },
-    { id: 9, title: 'Temple Courtyard', category: 'Temple', emoji: '🌿' },
-    { id: 10, title: 'Krishna Janmashtami', category: 'Festivals', emoji: '🦚' },
-    { id: 11, title: 'Satyanarayan Puja', category: 'Puja', emoji: '📿' },
-    { id: 12, title: 'Temple Anniversary', category: 'Events', emoji: '🎉' },
+    { id: 1, title: 'Temple Main Entrance', category: 'Temple', src: galleryImage1 },
+    { id: 2, title: 'Ganesh Chaturthi Celebration', category: 'Festivals', src: galleryImage2 },
+    { id: 3, title: 'Morning Abhishekam', category: 'Puja', src: galleryImage3 },
+    { id: 4, title: 'Navaratri Cultural Program', category: 'Events', src: galleryImage4 },
+    { id: 5, title: 'Temple Gopuram', category: 'Temple', src: galleryImage5 },
+    { id: 6, title: 'Diwali Decoration', category: 'Festivals', src: galleryImage6 },
+    { id: 7, title: 'Evening Aarti', category: 'Puja', src: galleryImage7 },
 ]
 
 function Gallery() {
@@ -51,7 +56,7 @@ function Gallery() {
                         {galleryImages.map((image) => (
                             <div className="gallery-item" key={image.id}>
                                 <div className="gallery-image-placeholder">
-                                    <span className="gallery-emoji">{image.emoji}</span>
+                                    <img src={image.src} alt={image.title} />
                                 </div>
                                 <div className="gallery-overlay">
                                     <h3>{image.title}</h3>
@@ -72,22 +77,18 @@ function Gallery() {
                     </div>
                     <div className="videos-grid">
                         <div className="card video-card">
-                            <div className="video-placeholder">
-                                <span className="video-play-icon">▶</span>
-                                <p>Morning Aarti Video</p>
-                            </div>
+                            <video className="video-player" controls preload="metadata">
+                                <source src={aratiVideo1} type="video/mp4" />
+                                Your browser does not support video playback.
+                            </video>
+                            <p className="video-title">Aarti Video 1</p>
                         </div>
                         <div className="card video-card">
-                            <div className="video-placeholder">
-                                <span className="video-play-icon">▶</span>
-                                <p>Festival Celebration Video</p>
-                            </div>
-                        </div>
-                        <div className="card video-card">
-                            <div className="video-placeholder">
-                                <span className="video-play-icon">▶</span>
-                                <p>Temple Tour Video</p>
-                            </div>
+                            <video className="video-player" controls preload="metadata">
+                                <source src={aratiVideo2} type="video/mp4" />
+                                Your browser does not support video playback.
+                            </video>
+                            <p className="video-title">Aarti Video 2</p>
                         </div>
                     </div>
                 </div>

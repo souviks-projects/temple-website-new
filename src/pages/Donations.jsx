@@ -113,7 +113,7 @@ function Donations() {
                                         <input
                                             type="tel"
                                             id="phone"
-                                            placeholder="+91 00000 00000"
+                                            placeholder="+91 "
                                             value={phone}
                                             onChange={(e) => setPhone(e.target.value)}
                                             required
@@ -153,6 +153,13 @@ function Donations() {
                             </div>
 
                             <div className="card info-card">
+                                <h3>Need Help?</h3>
+                                <p>For donation assistance, contact the temple office.</p>
+                                <p><a href="tel:+919932831010">+91 9932831010</a></p>
+                                <p><a href="mailto:ssrgit1902@gmail.com">ssrgit1902@gmail.com</a></p>
+                            </div>
+
+                            <div className="card info-card">
                                 <h3>Where Your Donation Goes</h3>
                                 <ul className="donation-uses">
                                     <li>🛕 Temple maintenance & renovation</li>
@@ -166,17 +173,17 @@ function Donations() {
                             <div className="card info-card">
                                 <h3>Bank Details</h3>
                                 <ul className="bank-details">
-                                    <li><strong>Account Name:</strong> Shree Temple Trust</li>
-                                    <li><strong>Account Number:</strong> 000000000000</li>
-                                    <li><strong>IFSC Code:</strong> HDFC0000000</li>
-                                    <li><strong>Bank:</strong> HDFC Bank</li>
+                                    <li><strong>Account Name:</strong> Shree Shree Radha Gobindo Jiu Thakur</li>
+                                    <li><strong>Account Number:</strong> 190022010002820</li>
+                                    <li><strong>IFSC Code:</strong> UBIN0919004</li>
+                                    <li><strong>Bank:</strong> Union Bank of India</li>
                                 </ul>
                             </div>
 
                             <div className="card info-card">
                                 <h3>Tax Benefits</h3>
                                 <p>
-                                    Donations to Shree Temple are eligible for tax exemption under
+                                    Donations to Shree Shree Radha Gobindo Jiu Thakur are eligible for tax exemption under
                                     Section 80G of the Income Tax Act. A receipt will be provided for
                                     all donations.
                                 </p>

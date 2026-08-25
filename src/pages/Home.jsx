@@ -1,51 +1,24 @@
 import { Link } from 'react-router-dom'
 import EventCard from '../components/EventCard'
+import locationImage from '../assets/WhatsApp Image 2026-08-16 at 19.03.43.jpeg'
 
 const upcomingEvents = [
     {
         id: 1,
-        title: 'Ganesh Chaturthi',
-        day: '07',
+        title: 'Janmashtami Celebration',
+        day: '04',
         month: 'SEP',
-        description: 'Celebrate the birth of Lord Ganesha with special puja and prasadam distribution.',
-        time: '6:00 AM – 12:00 PM',
+        description: 'Celebrate the birth of Lord Krishna with special puja and prasadam distribution.',
+        time: '11:57 PM Sept 4 – 12:43 AM Sept 5',
         location: 'Main Temple Hall',
-    },
-    {
-        id: 2,
-        title: 'Navaratri Utsav',
-        day: '10',
-        month: 'OCT',
-        description: 'Nine nights of devotion with Durga puja, bhajans, and cultural programs.',
-        time: '6:00 PM – 9:00 PM',
-        location: 'Temple Grounds',
-    },
-    {
-        id: 3,
-        title: 'Diwali Mahotsav',
-        day: '31',
-        month: 'OCT',
-        description: 'Grand Diwali celebration with Lakshmi puja, fireworks, and community feast.',
-        time: '5:00 PM – 10:00 PM',
-        location: 'Temple Grounds',
     },
 ]
 
 const announcements = [
     {
         id: 1,
-        title: 'Monthly Satyanarayan Puja',
-        content: 'Satyanarayan puja will be held on the first Sunday of every month at 10:00 AM. All devotees are welcome.',
-    },
-    {
-        id: 2,
         title: 'Temple Renovation Fund',
         content: 'We are raising funds for the temple renovation project. Your generous donations are greatly appreciated.',
-    },
-    {
-        id: 3,
-        title: 'Free Medical Camp',
-        content: 'A free medical camp will be organized on the 15th of next month. Free checkups and medicines will be provided.',
     },
 ]
 
@@ -68,7 +41,7 @@ function Home() {
                 <div className="container hero-content">
                     <div className="hero-text">
                         <h1 className="hero-title">
-                            Welcome to <span className="hero-highlight">Shree Temple</span>
+                            Welcome to <span className="hero-highlight">Shree Shree Radha Gobindo Jiu Thakur</span>
                         </h1>
                         <p className="hero-subtitle">
                             A sacred sanctuary of peace, devotion, and community.
@@ -84,7 +57,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="hero-image">
-                        <img src="/src/assets/hero.png" alt="Shree Temple" />
+                        <img src="/src/assets/WhatsApp Image 2026-08-16 at 19.03.45.jpeg" alt="Shree Shree Radha Gobindo Jiu Thakur" />
                     </div>
                 </div>
             </section>
@@ -168,24 +141,31 @@ function Home() {
                     </div>
                     <div className="contact-grid">
                         <div className="contact-info">
-                            <h3>Shree Temple</h3>
-                            <p>Temple Street, Main Road</p>
-                            <p>Your City, State – 000000</p>
+                            <h3>Shree Shree Radha Gobindo Jiu Thakur</h3>
+                            <p>PO - Baishnabchak, PS - Kolaghat, PS - Kolaghat</p>
+                            <p>East Midnapure, West Bengal – 721158</p>
                             <p>
-                                <a href="tel:+910000000000">+91 00000 00000</a>
+                                <a href="tel:+919932831010">+91 9932831010</a>
                             </p>
                             <p>
-                                <a href="mailto:info@shreetemple.org">info@shreetemple.org</a>
+                                <a href="mailto:ssrgit1902@gmail.com">ssrgit1902@gmail.com</a>
                             </p>
                             <Link to="/contact" className="btn btn-outline mt-3">
                                 Contact Us
                             </Link>
                         </div>
                         <div className="contact-map">
-                            <div className="map-placeholder">
-                                <p>📍 Google Maps Location</p>
-                                <p className="text-muted">Map will be embedded here</p>
-                            </div>
+                            <a
+                                className="map-placeholder-link"
+                                href="https://maps.app.goo.gl/FsBZK5iMTCUxig3F8"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <div className="map-placeholder">
+                                    <img src={locationImage} alt="Inside Shree Temple" />
+                                    <span className="map-overlay-label">📍 Open Google Maps</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

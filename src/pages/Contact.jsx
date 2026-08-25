@@ -13,10 +13,11 @@ function Contact() {
                     <div className="contact-grid">
                         <div className="card contact-card">
                             <h2>Temple Office</h2>
-                            <p>Shree Temple</p>
-                            <p>123 Temple Road, Heritage District</p>
-                            <p>Phone: +91 98765 43210</p>
-                            <p>Email: info@shreetemple.org</p>
+                            <p>Shree Shree Radha Gobindo Jiu Thakur</p>
+                            <p>PO - Baishnabchak, PS - Kolaghat, PS - Kolaghat</p>
+                            <p>East Midnapure, West Bengal – 721158</p>
+                            <p>Phone: <a href="tel:+919932831010">+91 9932831010</a></p>
+                            <p>Email: <a href="mailto:ssrgit1902@gmail.com">ssrgit1902@gmail.com</a></p>
                         </div>
 
                         <div className="card contact-card">

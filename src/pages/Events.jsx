@@ -118,7 +118,9 @@ function Events() {
                     </div>
                     <div className="text-center mt-4">
                         <p className="text-muted">
-                            For puja bookings, please contact the temple office at +91 00000 00000
+                            For puja bookings, please contact the temple office at{' '}
+                            <a href="tel:+919932831010">+91 9932831010</a> or{' '}
+                            <a href="mailto:ssrgit1902@gmail.com">ssrgit1902@gmail.com</a>
                         </p>
                     </div>
                 </div>

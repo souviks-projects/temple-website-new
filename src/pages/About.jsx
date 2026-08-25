@@ -1,10 +1,12 @@
+import templeHistoryImage from '../assets/WhatsApp Image 2026-08-16 at 18.51.34.jpeg'
+
 function About() {
     return (
         <>
             {/* Page Hero */}
             <section className="page-hero">
                 <div className="container">
-                    <h1>About Shree Temple</h1>
+                    <h1>About Shree Shree Radha Gobindo Jiu Thakur</h1>
                     <p>Our history, traditions, and spiritual heritage</p>
                 </div>
             </section>
@@ -15,8 +17,7 @@ function About() {
                     <div className="about-grid">
                         <div className="about-image">
                             <div className="about-image-placeholder">
-                                <span>🛕</span>
-                                <p>Temple History Image</p>
+                                <img src={templeHistoryImage} alt="Shree Shree Radha Gobindo Jiu Thakur temple" />
                             </div>
                         </div>
                         <div className="about-text">
@@ -24,7 +25,7 @@ function About() {
                                 <h2>Our History</h2>
                             </div>
                             <p>
-                                Shree Temple has been a beacon of faith and devotion for over
+                                Shree Shree Radha Gobindo Jiu Thakur has been a beacon of faith and devotion for over
                                 100 years. Founded by devoted saints and community leaders,
                                 the temple has grown from a small shrine into a vibrant center
                                 of worship and community service.
@@ -57,35 +58,11 @@ function About() {
                     <div className="deities-grid">
                         <div className="card deity-card">
                             <div className="deity-icon">🕉️</div>
-                            <h3>Lord Shiva</h3>
+                            <h3>Radha Krishna</h3>
                             <p>
-                                The supreme deity of the temple. Lord Shiva represents
-                                transformation, meditation, and the cosmic dance of creation
-                                and destruction.
-                            </p>
-                        </div>
-                        <div className="card deity-card">
-                            <div className="deity-icon">🌸</div>
-                            <h3>Goddess Parvati</h3>
-                            <p>
-                                The divine mother and consort of Lord Shiva. She embodies
-                                love, fertility, and devotion.
-                            </p>
-                        </div>
-                        <div className="card deity-card">
-                            <div className="deity-icon">🐘</div>
-                            <h3>Lord Ganesha</h3>
-                            <p>
-                                The remover of obstacles and the god of beginnings. Lord
-                                Ganesha is worshipped first in all ceremonies.
-                            </p>
-                        </div>
-                        <div className="card deity-card">
-                            <div className="deity-icon">🦚</div>
-                            <h3>Lord Murugan</h3>
-                            <p>
-                                The god of war and victory, also known as Kartikeya. He
-                                represents courage, wisdom, and spiritual strength.
+                                Radha and Krishna represent the eternal bond of divine love,
+                                devotion, and spiritual joy. Their presence inspires devotees
+                                to live with compassion, humility, and wholehearted faith.
                             </p>
                         </div>
                     </div>
@@ -147,25 +124,25 @@ function About() {
                         <div className="card committee-card">
                             <div className="committee-avatar">👤</div>
                             <h3>President</h3>
-                            <p className="committee-name">Sri. Ramaswamy Iyer</p>
+                            <p className="committee-name">Sitanath Mandal</p>
                             <p>Leading the temple administration and community outreach.</p>
                         </div>
                         <div className="card committee-card">
                             <div className="committee-avatar">👤</div>
                             <h3>Secretary</h3>
-                            <p className="committee-name">Sri. Venkatesh Sharma</p>
+                            <p className="committee-name">Madhusudan Mandal</p>
                             <p>Managing daily operations, events, and temple records.</p>
                         </div>
                         <div className="card committee-card">
                             <div className="committee-avatar">👤</div>
                             <h3>Treasurer</h3>
-                            <p className="committee-name">Sri. Krishnan Nair</p>
+                            <p className="committee-name">Raghunath Mandal</p>
                             <p>Overseeing temple finances and donation management.</p>
                         </div>
                         <div className="card committee-card">
                             <div className="committee-avatar">👤</div>
-                            <h3>Chief Priest</h3>
-                            <p className="committee-name">Sri. Subramanian Bhatt</p>
+                            <h3>Vice Priest</h3>
+                            <p className="committee-name">Ratan Mandal</p>
                             <p>Leading all religious ceremonies and spiritual guidance.</p>
                         </div>
                     </div>
