@@ -54,6 +54,24 @@ function Home() {
                 </div>
             </section>
 
+            {/* Community Project Notice */}
+            <section className="project-notice-section" aria-label="Donation appeal">
+                <div className="container">
+                    <Link to="/donate" className="project-notice">
+                        <div className="project-notice-icon" aria-hidden="true">🚻</div>
+                        <div className="project-notice-content">
+                            <p className="project-notice-label">Community project in progress</p>
+                            <h2>Help Us Build and Renovate Temple Bathrooms</h2>
+                            <p>
+                                We are creating and renovating clean bathroom and latrine facilities
+                                for devotees and the surrounding community. Every contribution helps.
+                            </p>
+                        </div>
+                        <span className="project-notice-action">Donate to this project <span aria-hidden="true">→</span></span>
+                    </Link>
+                </div>
+            </section>
+
             {/* Temple Timings Section */}
             <section className="section section-alt" id="timings">
                 <div className="container">

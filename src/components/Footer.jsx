@@ -43,6 +43,7 @@ function Footer() {
             <div className="footer-bottom">
                 <div className="container">
                     <p>&copy; {new Date().getFullYear()} Shree Shree Radha Gobindo Jiu Thakur. All rights reserved.</p>
+                    <p className="footer-credit">Website developed and maintained by Souvik Mandal(Soft. Develope)</p>
                 </div>
             </div>
         </footer>
