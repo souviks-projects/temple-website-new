@@ -1,6 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import QRCode from 'qrcode'
 
 const presetAmounts = [100, 500, 1000, 5000]
+const templeUpiId = 'QR919932831010-2820@unionbankofindia'
+const templeName = 'Shree Shree Radha Gobindo Jiu Thakur'
+
+function createPaymentUri(amount, donorName, purpose) {
+    const transactionNote = donorName ? `${purpose} - ${donorName}` : purpose
+    const params = new URLSearchParams({
+        pa: templeUpiId,
+        pn: templeName,
+        am: amount.toFixed(2),
+        cu: 'INR',
+        tn: transactionNote,
+    })
+
+    return `upi://pay?${params.toString()}`
+}
 
 function Donations() {
     const [selectedAmount, setSelectedAmount] = useState(500)
@@ -9,6 +25,36 @@ function Donations() {
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [purpose, setPurpose] = useState('General Donation')
+    const [paymentQr, setPaymentQr] = useState('')
+    const [paymentStatus, setPaymentStatus] = useState('')
+
+    const paymentAmount = Number(customAmount || selectedAmount)
+    const paymentUri = paymentAmount > 0 ? createPaymentUri(paymentAmount, donorName, purpose) : ''
+
+    useEffect(() => {
+        let isCurrent = true
+
+        if (!paymentAmount || paymentAmount < 1) {
+            Promise.resolve().then(() => {
+                if (isCurrent) setPaymentQr('')
+            })
+            return () => {
+                isCurrent = false
+            }
+        }
+
+        QRCode.toDataURL(paymentUri, {
+            width: 320,
+            margin: 2,
+            errorCorrectionLevel: 'M',
+        }).then((dataUrl) => {
+            if (isCurrent) setPaymentQr(dataUrl)
+        })
+
+        return () => {
+            isCurrent = false
+        }
+    }, [customAmount, donorName, paymentAmount, paymentUri, purpose, selectedAmount])
 
     const handlePresetSelect = (amount) => {
         setSelectedAmount(amount)
@@ -22,7 +68,49 @@ function Donations() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        alert('Thank you for your donation! Payment integration will be added soon.')
+
+        if (!paymentQr) {
+            setPaymentStatus('Please enter a valid donation amount to generate the QR code.')
+            return
+        }
+
+        const qrWindow = window.open('', '_blank', 'popup,width=440,height=640')
+
+        if (!qrWindow) {
+            setPaymentStatus('Your QR is ready above. Please allow popups to open it in a separate window.')
+            return
+        }
+
+        qrWindow.opener = null
+        qrWindow.document.write(`
+            <!doctype html>
+            <html lang="en">
+                <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <title>Temple Donation QR</title>
+                    <style>
+                        body { margin: 0; padding: 32px 20px; background: #f7f1e8; color: #2f2924; font-family: Georgia, serif; text-align: center; }
+                        main { max-width: 360px; margin: 0 auto; padding: 24px; background: #fff; border: 1px solid #e7dcc8; border-radius: 20px; box-shadow: 0 12px 30px rgba(70, 46, 26, .12); }
+                        h1 { margin: 0 0 8px; font-size: 28px; }
+                        p { margin: 8px 0; font-family: Arial, sans-serif; line-height: 1.5; }
+                        img { display: block; width: min(100%, 320px); margin: 24px auto 18px; }
+                        .amount { color: #8b1a1a; font-size: 24px; font-weight: 700; }
+                        .upi { color: #675d52; font-size: 13px; overflow-wrap: anywhere; }
+                    </style>
+                </head>
+                <body>
+                    <main>
+                        <h1>Scan to Donate</h1>
+                        <p class="amount">₹${paymentAmount.toLocaleString('en-IN')}</p>
+                        <img src="${paymentQr}" alt="Donation payment QR code">
+                        <p>Scan this QR code with your preferred UPI app.</p>
+                        <p class="upi">${templeUpiId}</p>
+                    </main>
+                </body>
+            </html>
+        `)
+        qrWindow.document.close()
+        setPaymentStatus('Your payment QR opened in a separate window.')
     }
 
     return (
@@ -44,6 +132,34 @@ function Donations() {
 
             <section className="section donation-section">
                 <div className="container">
+                    <div className="donation-intro-grid">
+                        <div className="card info-card donation-payment-card">
+                            <p className="payment-eyebrow">Quick and secure</p>
+                            <h2>Scan to Donate</h2>
+                            <p>Scan this general QR with any UPI app to donate to the temple.</p>
+                            <div className="payment-qr-wrap">
+                                <img
+                                    className="payment-qr"
+                                    src="/payment-qr.png"
+                                    alt="General Union Bank UPI QR code for Shree Shree Radha Gobindo Jiu Thakur"
+                                />
+                            </div>
+                            <p className="payment-upi-id">UPI ID: {templeUpiId}</p>
+                            <p className="payment-bank-note">Union Bank of India · Account ending 2820</p>
+                        </div>
+
+                        <div className="card info-card highlight-card donation-why-card">
+                            <p className="payment-eyebrow">Your support matters</p>
+                            <h2>Why Donate?</h2>
+                            <p>
+                                Your donations help us maintain the temple, organize festivals,
+                                support community programs, and preserve our spiritual heritage for
+                                future generations.
+                            </p>
+                            <div className="donation-why-accent" aria-hidden="true">✦</div>
+                        </div>
+                    </div>
+
                     <div className="donation-layout">
                         <div className="donation-form-container">
                             <div className="card donation-card">
@@ -136,22 +252,14 @@ function Donations() {
                                     </div>
 
                                     <button type="submit" className="btn btn-primary btn-lg btn-block">
-                                        Donate {selectedAmount ? `₹${selectedAmount.toLocaleString('en-IN')}` : customAmount ? `₹${customAmount}` : ''}
+                                        Generate Payment QR {paymentAmount ? `₹${paymentAmount.toLocaleString('en-IN')}` : ''}
                                     </button>
+                                    {paymentStatus && <p className="payment-status" aria-live="polite">{paymentStatus}</p>}
                                 </form>
                             </div>
                         </div>
 
                         <aside className="donation-info">
-                            <div className="card info-card highlight-card">
-                                <h3>Why Donate?</h3>
-                                <p>
-                                    Your donations help us maintain the temple, organize festivals,
-                                    support community programs, and preserve our spiritual heritage for
-                                    future generations.
-                                </p>
-                            </div>
-
                             <div className="card info-card">
                                 <h3>Need Help?</h3>
                                 <p>For donation assistance, contact the temple office.</p>

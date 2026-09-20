@@ -1,4 +1,8 @@
 import templeHistoryImage from '../assets/WhatsApp Image 2026-08-16 at 18.51.34.jpeg'
+import madhusudanImage from '../assets/Madhusudan.png'
+import raghunathImage from '../assets/Raghunath.jpg'
+import ratanImage from '../assets/Ratan.png'
+import sitanathImage from '../assets/Sitanath.jpg'
 
 function About() {
     return (
@@ -122,26 +126,34 @@ function About() {
                     </div>
                     <div className="committee-grid">
                         <div className="card committee-card">
-                            <div className="committee-avatar">👤</div>
+                            <div className="committee-avatar">
+                                <img src={sitanathImage} alt="Sitanath Mandal" />
+                            </div>
                             <h3>President</h3>
                             <p className="committee-name">Sitanath Mandal</p>
                             <p>Leading the temple administration and community outreach.</p>
                         </div>
                         <div className="card committee-card">
-                            <div className="committee-avatar">👤</div>
+                            <div className="committee-avatar">
+                                <img src={madhusudanImage} alt="Madhusudan Mandal" />
+                            </div>
                             <h3>Secretary</h3>
                             <p className="committee-name">Madhusudan Mandal</p>
                             <p>Managing daily operations, events, and temple records.</p>
                         </div>
                         <div className="card committee-card">
-                            <div className="committee-avatar">👤</div>
+                            <div className="committee-avatar">
+                                <img src={raghunathImage} alt="Raghunath Mandal" />
+                            </div>
                             <h3>Treasurer</h3>
                             <p className="committee-name">Raghunath Mandal</p>
                             <p>Overseeing temple finances and donation management.</p>
                         </div>
                         <div className="card committee-card">
-                            <div className="committee-avatar">👤</div>
-                            <h3>Vice Priest</h3>
+                            <div className="committee-avatar">
+                                <img src={ratanImage} alt="Ratan Mandal" />
+                            </div>
+                            <h3>Vice President</h3>
                             <p className="committee-name">Ratan Mandal</p>
                             <p>Leading all religious ceremonies and spiritual guidance.</p>
                         </div>

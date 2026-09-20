@@ -1,19 +1,10 @@
 import { Link } from 'react-router-dom'
 import EventCard from '../components/EventCard'
+import { getUpcomingEvents } from '../data/events'
 import heroImage from '../assets/WhatsApp Image 2026-08-16 at 19.03.45.jpeg'
 import locationImage from '../assets/WhatsApp Image 2026-08-16 at 19.03.43.jpeg'
 
-const upcomingEvents = [
-    {
-        id: 1,
-        title: 'Janmashtami Celebration',
-        day: '04',
-        month: 'SEP',
-        description: 'Celebrate the birth of Lord Krishna with special puja and prasadam distribution.',
-        time: '11:57 PM Sept 4 – 12:43 AM Sept 5',
-        location: 'Main Temple Hall',
-    },
-]
+const upcomingEvents = getUpcomingEvents().slice(0, 1)
 
 const announcements = [
     {
